@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>TP JS</title>
+
+    <script defer type="text/javascript" src="./app.js"></script>
+    <link href="./style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <main class="feed">
+        <h1><span id="lenny_face"></span> --
+            <span style="font-size: 30px;">[ </span><span id="title"></span><span style="font-size: 30px;"> ]</span> </h1>
+
+        <section class="form_and_messages">
+            <form class="form_message">
+                <textarea id="message_textarea" class="message_textarea" name="content" placeholder="Say something" minlength="0" maxlength="280" required></textarea>
+                <input id="submit_message" disabled type="button" name="submit" value="Post it!" title="Post it!">
+            </form>
+
+            <section class="list_messages">
+            </section>
+        </section>
+
+        <template id="message_template">
+            <div class="message">
+                <div class="avatar_container">
+                    <div class="avatar"><span></span></div>
+                </div>
+                <div class="message_content">
+                    <time class="message_time"></time>
+                </div>
+            </div>
+        </template>
+    </main>
+</body>
+
+</html>
