@@ -17,7 +17,6 @@ let textareas = document.getElementById('message_textarea'),
 
 hiddenDiv.classList.add('hiddenDiv')
 
-// Loop through all the textareas and add the event listener
 textareas.addEventListener('input', function() {
     const submitMessageBtn = document.getElementById('submit_message')
 
@@ -32,7 +31,7 @@ textareas.addEventListener('input', function() {
 
     // The <br ..> part is for old IE
     // This fixes the jumpy way the textarea grows if line-height isn't included
-    hiddenDiv.innerHTML = this.value.replace(/\n/g, '<br>') + '<br style="line-height: 10px;">'
+    hiddenDiv.innerText = this.value + '<br style="line-height: 10px;">'
 
     // Briefly make the hidden div block but invisible
     // This is in order to read the height
@@ -73,14 +72,19 @@ function createNodeFromMessageTemplate(messageTemplate, textArea) {
     const node = document.importNode(div, true)
 
     // Time
-    const time = node.querySelector('.message_content > .message_time')
+    const time = document.createElement('time')
     const localeDate = `${(new Date()).toLocaleString('en-EN')}`
-    time.innerHTML = `<br/>${localeDate}`
+    time.innerText = `${localeDate}`
     time.setAttribute('title', `Posted on ${localeDate}`)
+    time.classList.add('message_time')
+
+    // BR
+    const br = document.createElement('br')
 
     //Text
-    const p = document.createElement('p')
-    p.innerHTML = `${textArea.value.replace(/\n/g, `<br>`).trim()}`
+    const p = node.querySelector('div.message_content > p')
+    p.innerText = `${textArea.value.trim()}`
+    p.appendChild(br)
     p.appendChild(time)
 
 
@@ -89,7 +93,7 @@ function createNodeFromMessageTemplate(messageTemplate, textArea) {
     const avatar = node.querySelector('.avatar > span')
     avatar.innerText = 'TT'
     const messageContent = node.querySelector('.message_content')
-    
+
     messageContent.appendChild(p)
     return node
 }
