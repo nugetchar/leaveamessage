@@ -92,9 +92,7 @@ function createNodeFromMessageTemplate(messageTemplate, textArea) {
     // Avatar
     const avatar = node.querySelector('.avatar > span')
     avatar.innerText = 'TT'
-    const messageContent = node.querySelector('.message_content')
 
-    messageContent.appendChild(p)
     return node
 }
 
