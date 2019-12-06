@@ -4,17 +4,26 @@ body {
     color: #ffffff;
 }
 
-h1.main_title {
-    font-size: 24px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+
+header.main_title {
     padding-bottom: 20px;
     border-bottom: 2px solid #afacac96;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+header.main_title > h1, header.main_title > h2 {
+    font-size: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 10px auto 5px 0;
+}
+
+header.main_title > h2 {
+    font-size: 14px;
 }
 
 .feed {

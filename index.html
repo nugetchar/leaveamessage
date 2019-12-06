@@ -3,24 +3,27 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Velvet Thunder</title>
+    <title>Leave a message</title>
 
-    <script defer type="text/javascript" src="./app.js"></script>
+    <script defer type="module" src="./app.js"></script>
     <link href="./style.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <h1 class="main_title">
-        <span>
-                <span id="lenny_face"></span> --
-        <span style="font-size: 30px;">[ </span><span id="title"></span><span style="font-size: 30px;"> ]</span>
-        </span>
-    </h1>
+    <header class="main_title">
+        <h1>
+            Leave a message
+        </h1>
+        <h2 id="subhead">
+            <span style="visibility: hidden;">hidden text that will be replaced</span>
+        </h2>
+    </header>
+
     <main class="feed">
         <section class="form_and_messages">
             <form class="form_message">
-                <textarea id="message_textarea" class="message_textarea" name="content" placeholder="Say something" minlength="0" maxlength="280" required></textarea>
+                <textarea id="message_textarea" class="message_textarea" name="content" placeholder="Say something" maxlength="280"></textarea>
                 <input id="submit_message" disabled type="button" name="submit" value="Post it!" title="Post it!">
             </form>
 
