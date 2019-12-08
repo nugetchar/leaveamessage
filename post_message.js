@@ -1,15 +1,18 @@
+import { parseEmphasis } from './parser.js'
+
 export function submitMessage(listMessages, msgTemplate, textarea) {
-    if (!textarea.value.trim()) {
+    const value = parseEmphasis(textarea.value.trim())
+    if (!value) {
         return
     }
-    const message = createNodeFromMessageTemplate(msgTemplate, textarea)
+    const message = createNodeFromMessageTemplate(msgTemplate, value)
     addMessageToList(message, listMessages)
     resetTextArea(textarea)
 
     disableBtn(this)
 }
 
-function createNodeFromMessageTemplate(messageTemplate, textArea) {
+function createNodeFromMessageTemplate(messageTemplate, value) {
     const div = messageTemplate.content.querySelector("div.message");
     const node = document.importNode(div, true)
 
@@ -25,7 +28,7 @@ function createNodeFromMessageTemplate(messageTemplate, textArea) {
 
     //Text
     const p = node.querySelector('div.message_content > p')
-    p.innerText = `${textArea.value.trim()}`
+    p.innerHTML = `${value}`
     p.appendChild(br)
     p.appendChild(time)
 
